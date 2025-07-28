@@ -105,9 +105,6 @@ final class ZohoSyncCore {
      * Inicializar hooks de WordPress
      */
     private function init_hooks() {
-        // Autoloader
-        spl_autoload_register(array($this, 'autoload'));
-
         // Hook de activación
         register_activation_hook(__FILE__, array('ZohoSyncCore', 'activate'));
         
@@ -154,6 +151,9 @@ final class ZohoSyncCore {
      * Cargar dependencias del plugin
      */
     private function load_dependencies() {
+        // Autoloader simple para las clases del plugin
+        spl_autoload_register(array($this, 'autoload'));
+
         // Cargar archivos principales
         require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-core.php';
         require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-auth-manager.php';
@@ -239,6 +239,7 @@ final class ZohoSyncCore {
     public static function activate() {
         // Cargar dependencias de activación
         require_once ZOHO_SYNC_CORE_PLUGIN_DIR . 'database/class-database-manager.php';
+        require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-cron-manager.php';
 
         // Crear tablas de base de datos
         $database_manager = new Zoho_Sync_Core_Database_Manager();
@@ -250,11 +251,6 @@ final class ZohoSyncCore {
         
         // Limpiar rewrite rules
         flush_rewrite_rules();
-        
-        // Log de activación
-        if ($this->logger) {
-            $this->logger->info('Plugin Zoho Sync Core activado', array('version' => ZOHO_SYNC_CORE_VERSION));
-        }
     }
     
     /**
