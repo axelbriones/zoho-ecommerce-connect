@@ -1,5 +1,4 @@
 <?php
-<?php
 
 class ZSZB_Access_Controller {
 

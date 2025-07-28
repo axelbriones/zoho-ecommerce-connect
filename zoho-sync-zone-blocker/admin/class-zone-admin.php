@@ -1,5 +1,4 @@
 <?php
-<?php
 
 class ZSZB_Zone_Admin {
     private $settings_page = 'zszb_zone_admin';
