@@ -54,6 +54,22 @@ class Zoho_Sync_Core_Admin_Pages {
             'zoho_sync_core',
             'zoho_sync_core_section'
         );
+
+        add_settings_field(
+            'zoho_client_secret',
+            __('Client Secret', 'zoho-sync-core'),
+            array($this, 'render_client_secret_field'),
+            'zoho_sync_core',
+            'zoho_sync_core_section'
+        );
+
+        add_settings_field(
+            'zoho_refresh_token',
+            __('Refresh Token', 'zoho-sync-core'),
+            array($this, 'render_refresh_token_field'),
+            'zoho_sync_core',
+            'zoho_sync_core_section'
+        );
     }
 
     public function render_client_id_field() {
@@ -61,6 +77,22 @@ class Zoho_Sync_Core_Admin_Pages {
         $client_id = isset($options['zoho_client_id']) ? $options['zoho_client_id'] : '';
         ?>
         <input type='text' name='zoho_sync_core_settings[zoho_client_id]' value='<?php echo esc_attr($client_id); ?>'>
+        <?php
+    }
+
+    public function render_client_secret_field() {
+        $options = get_option('zoho_sync_core_settings');
+        $client_secret = isset($options['zoho_client_secret']) ? $options['zoho_client_secret'] : '';
+        ?>
+        <input type='text' name='zoho_sync_core_settings[zoho_client_secret]' value='<?php echo esc_attr($client_secret); ?>'>
+        <?php
+    }
+
+    public function render_refresh_token_field() {
+        $options = get_option('zoho_sync_core_settings');
+        $refresh_token = isset($options['zoho_refresh_token']) ? $options['zoho_refresh_token'] : '';
+        ?>
+        <input type='text' name='zoho_sync_core_settings[zoho_refresh_token]' value='<?php echo esc_attr($refresh_token); ?>'>
         <?php
     }
 }
