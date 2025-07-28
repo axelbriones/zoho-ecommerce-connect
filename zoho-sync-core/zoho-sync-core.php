@@ -109,7 +109,7 @@ final class ZohoSyncCore {
         spl_autoload_register(array($this, 'autoload'));
 
         // Hook de activación
-        register_activation_hook(__FILE__, array($this, 'activate'));
+        register_activation_hook(__FILE__, array('ZohoSyncCore', 'activate'));
         
         // Hook de desactivación
         register_deactivation_hook(__FILE__, array($this, 'deactivate'));
@@ -236,7 +236,7 @@ final class ZohoSyncCore {
     /**
      * Activación del plugin
      */
-    public function activate() {
+    public static function activate() {
         // Cargar dependencias de activación
         require_once ZOHO_SYNC_CORE_PLUGIN_DIR . 'database/class-database-manager.php';
 
@@ -245,9 +245,8 @@ final class ZohoSyncCore {
         $database_manager->create_tables();
         
         // Configurar tareas programadas
-        if ($this->cron_manager) {
-            $this->cron_manager->schedule_events();
-        }
+        $cron_manager = new Zoho_Sync_Core_Cron_Manager();
+        $cron_manager->schedule_events();
         
         // Limpiar rewrite rules
         flush_rewrite_rules();
