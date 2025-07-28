@@ -28,4 +28,12 @@ class Zoho_Sync_Core_Admin_Pages {
             array($this, 'dashboard_page')
         );
     }
+
+    public function admin_page() {
+        require_once ZOHO_SYNC_CORE_ADMIN_DIR . 'partials/settings-display.php';
+    }
+
+    public function dashboard_page() {
+        require_once ZOHO_SYNC_CORE_ADMIN_DIR . 'partials/dashboard-display.php';
+    }
 }
