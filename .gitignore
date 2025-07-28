@@ -1,0 +1,5 @@
+# Ignore all zip files in the root directory
+/*.zip
+
+# Ignore vscode settings
+.vscode/
