@@ -1,0 +1,115 @@
+.zscu-dashboard {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.level-badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.level-badge.bronze { background: #cd7f32; color: white; }
+.level-badge.silver { background: #c0c0c0; color: white; }
+.level-badge.gold { background: #ffd700; color: #333; }
+.level-badge.platinum { background: #e5e4e2; color: #333; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+    margin: 0 0 10px 0;
+    color: #666;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.stat-card .stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.orders .stat-value { color: #2271b1; }
+.spent .stat-value { color: #46a546; }
+.average .stat-value { color: #9d4dca; }
+.discount .stat-value { color: #d63638; }
+
+/* Tablas */
+.zscu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.zscu-table th,
+.zscu-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.zscu-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+/* Estado de pedidos */
+.order-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.order-status.completed { background: #c6e1c6; color: #5b841b; }
+.order-status.processing { background: #c8d7e1; color: #2e4453; }
+.order-status.on-hold { background: #f8dda7; color: #94660c; }
+
+/* Precios especiales */
+.special-price {
+    color: #d63638;
+    font-weight: 600;
+}
+
+.savings {
+    display: block;
+    font-size: 12px;
+    color: #46a546;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .zscu-table {
+        display: block;
+        overflow-x: auto;
+    }
+}

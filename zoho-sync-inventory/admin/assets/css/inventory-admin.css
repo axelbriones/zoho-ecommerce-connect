@@ -1,0 +1,66 @@
+.zsiv-dashboard {
+    padding: 20px;
+}
+
+.zsiv-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.zsiv-stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.zsiv-stat-card h3 {
+    margin: 0 0 10px 0;
+    color: #23282d;
+}
+
+.zsiv-stat-number {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2271b1;
+}
+
+.zsiv-low-stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.zsiv-low-stock-table th,
+.zsiv-low-stock-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.zsiv-low-stock-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+.zsiv-status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.zsiv-status-low {
+    background-color: #dc3545;
+}
+
+.zsiv-status-medium {
+    background-color: #ffc107;
+}
+
+.zsiv-status-good {
+    background-color: #28a745;
+}

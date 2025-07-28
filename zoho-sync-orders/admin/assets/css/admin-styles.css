@@ -1,0 +1,832 @@
+/**
+ * Zoho Sync Orders - Admin Styles
+ * 
+ * @package ZohoSyncOrders
+ * @subpackage Admin/Assets
+ * @since 1.0.0
+ */
+
+/* ==========================================================================
+   General Admin Styles
+   ========================================================================== */
+
+.zoho-orders-admin-wrap {
+    margin: 20px 20px 0 2px;
+}
+
+.zoho-orders-admin-wrap h1 {
+    margin-bottom: 20px;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.zoho-orders-admin-wrap .nav-tab-wrapper {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccd0d4;
+}
+
+.zoho-orders-admin-wrap .nav-tab {
+    position: relative;
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-bottom: none;
+    background: #f1f1f1;
+    color: #666;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.zoho-orders-admin-wrap .nav-tab:hover,
+.zoho-orders-admin-wrap .nav-tab:focus {
+    background-color: #fff;
+    color: #464646;
+}
+
+.zoho-orders-admin-wrap .nav-tab-active {
+    background: #fff;
+    border-color: #ccd0d4;
+    border-bottom-color: #fff;
+    color: #000;
+}
+
+/* ==========================================================================
+   Dashboard Styles
+   ========================================================================== */
+
+.zoho-orders-dashboard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.zoho-orders-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.zoho-orders-stat-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.zoho-orders-stat-card:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+}
+
+.zoho-orders-stat-card .stat-number {
+    display: block;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    color: #1d2327;
+}
+
+.zoho-orders-stat-card .stat-label {
+    font-size: 13px;
+    color: #646970;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.zoho-orders-stat-card.stat-success .stat-number {
+    color: #00a32a;
+}
+
+.zoho-orders-stat-card.stat-warning .stat-number {
+    color: #dba617;
+}
+
+.zoho-orders-stat-card.stat-error .stat-number {
+    color: #d63638;
+}
+
+.zoho-orders-stat-card.stat-info .stat-number {
+    color: #0073aa;
+}
+
+/* ==========================================================================
+   System Status Styles
+   ========================================================================== */
+
+.zoho-orders-system-status {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.zoho-orders-system-status h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #1d2327;
+}
+
+.zoho-orders-status-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.zoho-orders-status-item:last-child {
+    border-bottom: none;
+}
+
+.zoho-orders-status-item .status-label {
+    font-weight: 500;
+    color: #1d2327;
+}
+
+.zoho-orders-status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.zoho-orders-status-badge.status-active {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.zoho-orders-status-badge.status-inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.zoho-orders-status-badge.status-warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* ==========================================================================
+   Recent Activity Styles
+   ========================================================================== */
+
+.zoho-orders-recent-activity {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    margin-top: 20px;
+}
+
+.zoho-orders-recent-activity h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #1d2327;
+}
+
+.zoho-orders-activity-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.zoho-orders-activity-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.zoho-orders-activity-item:last-child {
+    border-bottom: none;
+}
+
+.zoho-orders-activity-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 14px;
+}
+
+.zoho-orders-activity-icon.icon-success {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.zoho-orders-activity-icon.icon-error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.zoho-orders-activity-icon.icon-warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.zoho-orders-activity-content {
+    flex: 1;
+}
+
+.zoho-orders-activity-content .activity-title {
+    font-weight: 500;
+    color: #1d2327;
+    margin-bottom: 4px;
+}
+
+.zoho-orders-activity-content .activity-meta {
+    font-size: 12px;
+    color: #646970;
+}
+
+/* ==========================================================================
+   Sync Status Styles
+   ========================================================================== */
+
+.zoho-sync-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.zoho-sync-completed {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.zoho-sync-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.zoho-sync-failed {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.zoho-sync-permanently_failed {
+    background: #495057;
+    color: #fff;
+}
+
+.zoho-sync-not-synced {
+    background: #e9ecef;
+    color: #6c757d;
+}
+
+/* ==========================================================================
+   Form Styles
+   ========================================================================== */
+
+.zoho-orders-form-section {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.zoho-orders-form-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #1d2327;
+    border-bottom: 1px solid #f0f0f1;
+    padding-bottom: 10px;
+}
+
+.zoho-orders-form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.zoho-orders-form-row:last-child {
+    margin-bottom: 0;
+}
+
+.zoho-orders-form-row label {
+    flex: 0 0 200px;
+    font-weight: 500;
+    color: #1d2327;
+    margin-right: 15px;
+}
+
+.zoho-orders-form-row .form-control {
+    flex: 1;
+}
+
+.zoho-orders-form-row .form-control input,
+.zoho-orders-form-row .form-control select,
+.zoho-orders-form-row .form-control textarea {
+    width: 100%;
+    max-width: 400px;
+}
+
+.zoho-orders-form-row .form-description {
+    flex: 1;
+    margin-left: 15px;
+    font-size: 12px;
+    color: #646970;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Table Styles
+   ========================================================================== */
+
+.zoho-orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.zoho-orders-table th,
+.zoho-orders-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.zoho-orders-table th {
+    background: #f6f7f7;
+    font-weight: 600;
+    color: #1d2327;
+    border-bottom: 1px solid #c3c4c7;
+}
+
+.zoho-orders-table tr:last-child td {
+    border-bottom: none;
+}
+
+.zoho-orders-table tr:hover {
+    background: #f9f9f9;
+}
+
+.zoho-orders-table .column-actions {
+    width: 120px;
+    text-align: center;
+}
+
+.zoho-orders-table .column-status {
+    width: 100px;
+    text-align: center;
+}
+
+.zoho-orders-table .column-date {
+    width: 150px;
+}
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+
+.zoho-orders-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background: #0073aa;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.zoho-orders-btn:hover,
+.zoho-orders-btn:focus {
+    background: #005a87;
+    color: #fff;
+    text-decoration: none;
+}
+
+.zoho-orders-btn:active {
+    transform: translateY(1px);
+}
+
+.zoho-orders-btn.btn-secondary {
+    background: #f1f1f1;
+    color: #646970;
+    border-color: #c3c4c7;
+}
+
+.zoho-orders-btn.btn-secondary:hover,
+.zoho-orders-btn.btn-secondary:focus {
+    background: #e9ecef;
+    color: #1d2327;
+}
+
+.zoho-orders-btn.btn-success {
+    background: #00a32a;
+}
+
+.zoho-orders-btn.btn-success:hover,
+.zoho-orders-btn.btn-success:focus {
+    background: #007a1f;
+}
+
+.zoho-orders-btn.btn-warning {
+    background: #dba617;
+}
+
+.zoho-orders-btn.btn-warning:hover,
+.zoho-orders-btn.btn-warning:focus {
+    background: #b8941a;
+}
+
+.zoho-orders-btn.btn-danger {
+    background: #d63638;
+}
+
+.zoho-orders-btn.btn-danger:hover,
+.zoho-orders-btn.btn-danger:focus {
+    background: #b32d2e;
+}
+
+.zoho-orders-btn.btn-small {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+.zoho-orders-btn.btn-large {
+    padding: 12px 24px;
+    font-size: 14px;
+}
+
+.zoho-orders-btn:disabled,
+.zoho-orders-btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Loading and Progress Styles
+   ========================================================================== */
+
+.zoho-orders-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #0073aa;
+    border-radius: 50%;
+    animation: zoho-orders-spin 1s linear infinite;
+}
+
+@keyframes zoho-orders-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.zoho-orders-progress {
+    width: 100%;
+    height: 20px;
+    background: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.zoho-orders-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #0073aa, #005a87);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.zoho-orders-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, .2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, .2) 50%,
+        rgba(255, 255, 255, .2) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 50px 50px;
+    animation: zoho-orders-progress-move 2s linear infinite;
+}
+
+@keyframes zoho-orders-progress-move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+/* ==========================================================================
+   Modal Styles
+   ========================================================================== */
+
+.zoho-orders-modal {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.zoho-orders-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zoho-orders-modal-content {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.zoho-orders-modal-header {
+    padding: 20px 20px 0;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.zoho-orders-modal-header h3 {
+    margin: 0 0 15px;
+    font-size: 18px;
+    color: #1d2327;
+}
+
+.zoho-orders-modal-body {
+    padding: 20px;
+}
+
+.zoho-orders-modal-footer {
+    padding: 0 20px 20px;
+    text-align: right;
+    border-top: 1px solid #f0f0f1;
+}
+
+.zoho-orders-modal-footer .zoho-orders-btn {
+    margin-left: 10px;
+}
+
+.zoho-orders-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #646970;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zoho-orders-modal-close:hover {
+    color: #1d2327;
+}
+
+/* ==========================================================================
+   Alert Styles
+   ========================================================================== */
+
+.zoho-orders-alert {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid;
+}
+
+.zoho-orders-alert.alert-success {
+    background: #d1e7dd;
+    color: #0f5132;
+    border-left-color: #00a32a;
+}
+
+.zoho-orders-alert.alert-warning {
+    background: #fff3cd;
+    color: #856404;
+    border-left-color: #dba617;
+}
+
+.zoho-orders-alert.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border-left-color: #d63638;
+}
+
+.zoho-orders-alert.alert-info {
+    background: #cff4fc;
+    color: #055160;
+    border-left-color: #0073aa;
+}
+
+.zoho-orders-alert .alert-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.zoho-orders-alert .alert-message {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    .zoho-orders-dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .zoho-orders-admin-wrap {
+        margin: 10px 10px 0 2px;
+    }
+    
+    .zoho-orders-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .zoho-orders-form-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .zoho-orders-form-row label {
+        flex: none;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    
+    .zoho-orders-form-row .form-description {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+    
+    .zoho-orders-table {
+        font-size: 12px;
+    }
+    
+    .zoho-orders-table th,
+    .zoho-orders-table td {
+        padding: 8px 10px;
+    }
+    
+    .zoho-orders-modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .zoho-orders-admin-wrap .nav-tab {
+        display: block;
+        margin-bottom: 1px;
+        border-radius: 0;
+    }
+    
+    .zoho-orders-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .zoho-orders-modal-footer .zoho-orders-btn {
+        display: block;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    
+    .zoho-orders-modal-footer .zoho-orders-btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.zoho-orders-text-center {
+    text-align: center;
+}
+
+.zoho-orders-text-right {
+    text-align: right;
+}
+
+.zoho-orders-text-left {
+    text-align: left;
+}
+
+.zoho-orders-mb-0 {
+    margin-bottom: 0;
+}
+
+.zoho-orders-mb-10 {
+    margin-bottom: 10px;
+}
+
+.zoho-orders-mb-20 {
+    margin-bottom: 20px;
+}
+
+.zoho-orders-mt-0 {
+    margin-top: 0;
+}
+
+.zoho-orders-mt-10 {
+    margin-top: 10px;
+}
+
+.zoho-orders-mt-20 {
+    margin-top: 20px;
+}
+
+.zoho-orders-hidden {
+    display: none;
+}
+
+.zoho-orders-visible {
+    display: block;
+}
+
+.zoho-orders-flex {
+    display: flex;
+}
+
+.zoho-orders-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zoho-orders-flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.zoho-orders-flex-wrap {
+    flex-wrap: wrap;
+}
+
+.zoho-orders-flex-1 {
+    flex: 1;
+}
+
+.zoho-orders-w-100 {
+    width: 100%;
+}
+
+.zoho-orders-h-100 {
+    height: 100%;
+}

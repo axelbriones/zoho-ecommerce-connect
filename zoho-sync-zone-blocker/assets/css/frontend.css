@@ -1,0 +1,66 @@
+.zszb-postal-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.zszb-postal-form-container h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.zszb-form-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    display: none;
+}
+
+.zszb-form-message.error {
+    background: #fff2f2;
+    border: 1px solid #ffb8b8;
+    color: #d63638;
+}
+
+.zszb-form-message.success {
+    background: #f0f7f0;
+    border: 1px solid #b8e6b8;
+    color: #2b662b;
+}
+
+.zszb-restricted-message {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.zszb-restricted-message h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.zszb-restricted-message p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.zszb-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #0073aa;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.zszb-button:hover {
+    background: #005177;
+    color: #fff;
+}

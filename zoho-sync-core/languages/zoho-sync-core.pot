@@ -1,0 +1,530 @@
+# Copyright (C) 2024 Zoho Sync Core
+# This file is distributed under the same license as the Zoho Sync Core package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Zoho Sync Core 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/tu-usuario/zoho-sync-core/issues\n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: zoho-sync-core\n"
+
+#: zoho-sync-core.php:302
+msgid "Zoho Sync Core requiere PHP versión 7.4 o superior. Tu versión actual es %s."
+msgstr ""
+
+#: zoho-sync-core.php:313
+msgid "Zoho Sync Core requiere WordPress versión 5.0 o superior. Tu versión actual es %s."
+msgstr ""
+
+#: includes/class-dependency-checker.php:56
+msgid "Versión de PHP"
+msgstr ""
+
+#: includes/class-dependency-checker.php:57
+msgid "PHP 7.4 o superior es requerido"
+msgstr ""
+
+#: includes/class-dependency-checker.php:63
+msgid "Versión de WordPress"
+msgstr ""
+
+#: includes/class-dependency-checker.php:64
+msgid "WordPress 5.0 o superior es requerido"
+msgstr ""
+
+#: includes/class-dependency-checker.php:70
+msgid "Extensión cURL"
+msgstr ""
+
+#: includes/class-dependency-checker.php:71
+msgid "cURL es necesario para comunicación con APIs"
+msgstr ""
+
+#: includes/class-dependency-checker.php:76
+msgid "Extensión JSON"
+msgstr ""
+
+#: includes/class-dependency-checker.php:77
+msgid "JSON es necesario para procesar datos de API"
+msgstr ""
+
+#: includes/class-dependency-checker.php:82
+msgid "Extensión OpenSSL"
+msgstr ""
+
+#: includes/class-dependency-checker.php:83
+msgid "OpenSSL es necesario para conexiones seguras"
+msgstr ""
+
+#: includes/class-dependency-checker.php:88
+msgid "Conexión a Base de Datos"
+msgstr ""
+
+#: includes/class-dependency-checker.php:89
+msgid "Conexión válida a la base de datos"
+msgstr ""
+
+#: includes/class-dependency-checker.php:94
+msgid "Permisos de Escritura"
+msgstr ""
+
+#: includes/class-dependency-checker.php:95
+msgid "Permisos para escribir logs y cache"
+msgstr ""
+
+#: includes/class-dependency-checker.php:104
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/class-dependency-checker.php:105
+msgid "Requerido para sincronización de e-commerce"
+msgstr ""
+
+#: includes/class-dependency-checker.php:110
+msgid "Extensión mbstring"
+msgstr ""
+
+#: includes/class-dependency-checker.php:111
+msgid "Recomendado para manejo de caracteres UTF-8"
+msgstr ""
+
+#: includes/class-dependency-checker.php:115
+msgid "Extensión GD"
+msgstr ""
+
+#: includes/class-dependency-checker.php:116
+msgid "Recomendado para procesamiento de imágenes"
+msgstr ""
+
+#: includes/class-dependency-checker.php:120
+msgid "Extensión ZIP"
+msgstr ""
+
+#: includes/class-dependency-checker.php:121
+msgid "Recomendado para exportación de archivos"
+msgstr ""
+
+#: includes/class-dependency-checker.php:125
+msgid "Límite de Memoria"
+msgstr ""
+
+#: includes/class-dependency-checker.php:126
+msgid "Al menos 128MB recomendado"
+msgstr ""
+
+#: includes/class-dependency-checker.php:131
+msgid "Tiempo Máximo de Ejecución"
+msgstr ""
+
+#: includes/class-dependency-checker.php:132
+msgid "Al menos 60 segundos recomendado"
+msgstr ""
+
+#: includes/class-dependency-checker.php:212
+msgid "Método de verificación no encontrado"
+msgstr ""
+
+#: includes/class-dependency-checker.php:216
+msgid "Error en verificación: %s"
+msgstr ""
+
+#: includes/class-dependency-checker.php:239
+msgid "Versión de PHP compatible"
+msgstr ""
+
+#: includes/class-dependency-checker.php:241
+msgid "PHP %s requerido, actual: %s"
+msgstr ""
+
+#: includes/class-dependency-checker.php:263
+msgid "Versión de WordPress compatible"
+msgstr ""
+
+#: includes/class-dependency-checker.php:265
+msgid "WordPress %s requerido, actual: %s"
+msgstr ""
+
+#: includes/class-dependency-checker.php:292
+msgid "Instalado"
+msgstr ""
+
+#: includes/class-dependency-checker.php:292
+msgid "No instalado"
+msgstr ""
+
+#: includes/class-dependency-checker.php:294
+msgid "Extensión cURL disponible"
+msgstr ""
+
+#: includes/class-dependency-checker.php:295
+msgid "Extensión cURL no encontrada"
+msgstr ""
+
+#: includes/class-dependency-checker.php:312
+msgid "Extensión JSON disponible"
+msgstr ""
+
+#: includes/class-dependency-checker.php:313
+msgid "Extensión JSON no encontrada"
+msgstr ""
+
+#: includes/class-dependency-checker.php:334
+msgid "Extensión OpenSSL disponible"
+msgstr ""
+
+#: includes/class-dependency-checker.php:335
+msgid "Extensión OpenSSL no encontrada"
+msgstr ""
+
+#: includes/class-dependency-checker.php:364
+msgid "Conexión a base de datos exitosa"
+msgstr ""
+
+#: includes/class-dependency-checker.php:366
+msgid "Error en consulta de prueba"
+msgstr ""
+
+#: includes/class-dependency-checker.php:370
+msgid "Error de conexión: %s"
+msgstr ""
+
+#: includes/class-dependency-checker.php:377
+msgid "Conectado"
+msgstr ""
+
+#: includes/class-dependency-checker.php:377
+msgid "Error"
+msgstr ""
+
+#: includes/class-dependency-checker.php:406
+msgid "No se puede escribir en: %s"
+msgstr ""
+
+#: includes/class-dependency-checker.php:414
+msgid "Permisos OK"
+msgstr ""
+
+#: includes/class-dependency-checker.php:414
+msgid "Permisos insuficientes"
+msgstr ""
+
+#: includes/class-dependency-checker.php:416
+msgid "Permisos de escritura correctos"
+msgstr ""
+
+#: includes/class-dependency-checker.php:440
+msgid "WooCommerce compatible"
+msgstr ""
+
+#: includes/class-dependency-checker.php:442
+msgid "WooCommerce %s requerido, actual: %s"
+msgstr ""
+
+#: includes/class-dependency-checker.php:447
+msgid "WooCommerce no está instalado"
+msgstr ""
+
+#: includes/class-dependency-checker.php:469
+msgid "Extensión mbstring disponible"
+msgstr ""
+
+#: includes/class-dependency-checker.php:470
+msgid "Extensión mbstring recomendada para mejor soporte UTF-8"
+msgstr ""
+
+#: includes/class-dependency-checker.php:496
+msgid "Extensión GD disponible"
+msgstr ""
+
+#: includes/class-dependency-checker.php:497
+msgid "Extensión GD recomendada para procesamiento de imágenes"
+msgstr ""
+
+#: includes/class-dependency-checker.php:514
+msgid "Extensión ZIP disponible"
+msgstr ""
+
+#: includes/class-dependency-checker.php:515
+msgid "Extensión ZIP recomendada para exportación de archivos"
+msgstr ""
+
+#: includes/class-dependency-checker.php:535
+msgid "Límite de memoria adecuado"
+msgstr ""
+
+#: includes/class-dependency-checker.php:537
+msgid "Se recomienda al menos %s, actual: %s"
+msgstr ""
+
+#: includes/class-dependency-checker.php:557
+msgid "Sin límite"
+msgstr ""
+
+#: includes/class-dependency-checker.php:559
+msgid "Tiempo de ejecución adecuado"
+msgstr ""
+
+#: includes/class-dependency-checker.php:561
+msgid "Se recomienda al menos %d segundos, actual: %s"
+msgstr ""
+
+#: includes/class-dependency-checker.php:662
+msgid "Zoho Sync Core: Dependencias críticas faltantes"
+msgstr ""
+
+#: includes/class-dependency-checker.php:676
+msgid "Zoho Sync Core: Advertencias de dependencias"
+msgstr ""
+
+#: includes/class-dependency-checker.php:678
+msgid "Se encontró %d advertencia en la verificación de dependencias."
+msgid_plural "Se encontraron %d advertencias en la verificación de dependencias."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-dependency-checker.php:687
+msgid "Ver detalles"
+msgstr ""
+
+#: includes/class-dependency-checker.php:701
+msgid "Verificación no realizada"
+msgstr ""
+
+#: includes/class-dependency-checker.php:707
+msgid "Todas las dependencias están correctas"
+msgstr ""
+
+#: includes/class-dependency-checker.php:709
+msgid "%d advertencias encontradas"
+msgstr ""
+
+#: includes/class-dependency-checker.php:713
+msgid "%d problemas críticos encontrados"
+msgstr ""
+
+#: includes/class-settings-manager.php:369
+msgid "Región de Zoho no válida"
+msgstr ""
+
+#: includes/class-settings-manager.php:377
+msgid "El timeout debe estar entre 5 y 300 segundos"
+msgstr ""
+
+#: includes/class-settings-manager.php:387
+msgid "El tamaño de lote debe estar entre 1 y 200"
+msgstr ""
+
+#: includes/class-settings-manager.php:396
+msgid "Email de notificación no válido"
+msgstr ""
+
+#: includes/class-settings-manager.php:478
+msgid "Configuración inválida: falta clave o valor"
+msgstr ""
+
+#: includes/class-settings-manager.php:504
+msgid "Error validando %s: %s"
+msgstr ""
+
+#: includes/class-settings-manager.php:516
+msgid "Error importando configuración: %s"
+msgstr ""
+
+#: includes/class-auth-manager.php:585
+msgid "Client ID es requerido"
+msgstr ""
+
+#: includes/class-auth-manager.php:590
+msgid "Client Secret es requerido"
+msgstr ""
+
+#: includes/class-auth-manager.php:595
+msgid "Región no válida"
+msgstr ""
+
+#: includes/class-auth-manager.php:603
+msgid "Credenciales válidas"
+msgstr ""
+
+#: includes/class-api-client.php:137
+msgid "No hay token de acceso válido para el servicio"
+msgstr ""
+
+#: includes/class-api-client.php:146
+msgid "Límite de rate excedido para el servicio"
+msgstr ""
+
+#: includes/class-api-client.php:311
+msgid "Se alcanzó el máximo número de reintentos"
+msgstr ""
+
+#: includes/class-api-client.php:328
+msgid "Error al decodificar respuesta JSON"
+msgstr ""
+
+#: includes/class-api-client.php:387
+msgid "Solicitud incorrecta"
+msgstr ""
+
+#: includes/class-api-client.php:388
+msgid "No autorizado - Token inválido"
+msgstr ""
+
+#: includes/class-api-client.php:389
+msgid "Prohibido - Sin permisos suficientes"
+msgstr ""
+
+#: includes/class-api-client.php:390
+msgid "Recurso no encontrado"
+msgstr ""
+
+#: includes/class-api-client.php:391
+msgid "Demasiadas solicitudes - Rate limit excedido"
+msgstr ""
+
+#: includes/class-api-client.php:392
+msgid "Error interno del servidor de Zoho"
+msgstr ""
+
+#: includes/class-api-client.php:393
+msgid "Bad Gateway"
+msgstr ""
+
+#: includes/class-api-client.php:394
+msgid "Servicio no disponible"
+msgstr ""
+
+#: includes/class-api-client.php:395
+msgid "Timeout del gateway"
+msgstr ""
+
+#: includes/class-api-client.php:399
+msgid "Error HTTP %d"
+msgstr ""
+
+#: includes/class-logger.php:503
+msgid "[%s] Alerta Zoho Sync: %s"
+msgstr ""
+
+#: includes/class-logger.php:509
+msgid "Se ha registrado un evento importante en Zoho Sync Core:\\n\\nMódulo: %s\\nNivel: %s\\nMensaje: %s\\nFecha: %s\\n\\nContexto: %s"
+msgstr ""
+
+#: includes/class-logger.php:514
+msgid "Sin contexto adicional"
+msgstr ""
+
+#: includes/class-core.php:150
+msgid "Tablas de base de datos faltantes: %s"
+msgstr ""
+
+#: includes/class-core.php:163
+msgid "Credenciales de Zoho no configuradas"
+msgstr ""
+
+#: includes/class-core.php:171
+msgid "Dependencias críticas no cumplidas"
+msgstr ""
+
+#: includes/class-core.php:226
+msgid "Zoho Sync Core: Error de inicialización"
+msgstr ""
+
+#: includes/class-core.php:238
+msgid "Zoho Sync Core: Advertencias del sistema"
+msgstr ""
+
+#: includes/class-core.php:360
+msgid "Slug de módulo inválido"
+msgstr ""
+
+#: includes/class-core.php:367
+msgid "Nombre de módulo requerido"
+msgstr ""
+
+#: includes/class-core.php:374
+msgid "Formato de versión inválido"
+msgstr ""
+
+#: includes/class-core.php:381
+msgid "Dependencias deben ser un array"
+msgstr ""
+
+#: includes/class-cron-manager.php:48
+msgid "Cada 5 minutos"
+msgstr ""
+
+#: includes/class-cron-manager.php:52
+msgid "Cada 15 minutos"
+msgstr ""
+
+#: includes/class-cron-manager.php:56
+msgid "Cada 30 minutos"
+msgstr ""
+
+#: includes/class-cron-manager.php:60
+msgid "Cada 2 horas"
+msgstr ""
+
+#: includes/class-cron-manager.php:64
+msgid "Cada 6 horas"
+msgstr ""
+
+#: includes/class-cron-manager.php:68
+msgid "Cada 12 horas"
+msgstr ""
+
+#: includes/class-cron-manager.php:81
+msgid "Refrescar tokens de Zoho"
+msgstr ""
+
+#: includes/class-cron-manager.php:88
+msgid "Verificación de salud del sistema"
+msgstr ""
+
+#: includes/class-cron-manager.php:95
+msgid "Limpiar logs antiguos"
+msgstr ""
+
+#: includes/class-cron-manager.php:102
+msgid "Verificar dependencias del sistema"
+msgstr ""
+
+#: includes/class-cron-manager.php:109
+msgid "Recopilar estadísticas del sistema"
+msgstr ""
+
+#: includes/class-cron-manager.php:323
+msgid "Hook de tarea inválido"
+msgstr ""
+
+#: includes/class-cron-manager.php:330
+msgid "Callback de tarea inválido"
+msgstr ""
+
+#: includes/class-cron-manager.php:339
+msgid "Intervalo de tarea inválido"
+msgstr ""
+
+#: includes/class-cron-manager.php:669
+msgid "WP Cron está deshabilitado"
+msgstr ""
+
+#: includes/class-cron-manager.php:677
+msgid "%d tareas están atrasadas"
+msgstr ""
+
+#: includes/class-webhook-handler.php:84
+msgid "Eventos de autenticación"
+msgstr ""
+
+#: includes/class-webhook-handler.php:91
+msgid "Eventos del sistema"
+msgstr ""
