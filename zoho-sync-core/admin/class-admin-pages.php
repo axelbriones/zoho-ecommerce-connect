@@ -58,8 +58,9 @@ class Zoho_Sync_Core_Admin_Pages {
 
     public function render_client_id_field() {
         $options = get_option('zoho_sync_core_settings');
+        $client_id = isset($options['zoho_client_id']) ? $options['zoho_client_id'] : '';
         ?>
-        <input type='text' name='zoho_sync_core_settings[zoho_client_id]' value='<?php echo esc_attr($options['zoho_client_id']); ?>'>
+        <input type='text' name='zoho_sync_core_settings[zoho_client_id]' value='<?php echo esc_attr($client_id); ?>'>
         <?php
     }
 }
