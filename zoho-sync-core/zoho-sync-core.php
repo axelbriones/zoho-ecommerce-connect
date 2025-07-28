@@ -237,10 +237,12 @@ final class ZohoSyncCore {
      * Activación del plugin
      */
     public function activate() {
+        // Cargar dependencias de activación
+        require_once ZOHO_SYNC_CORE_PLUGIN_DIR . 'database/class-database-manager.php';
+
         // Crear tablas de base de datos
-        if ($this->database_manager) {
-            $this->database_manager->create_tables();
-        }
+        $database_manager = new Zoho_Sync_Core_Database_Manager();
+        $database_manager->create_tables();
         
         // Configurar tareas programadas
         if ($this->cron_manager) {
