@@ -105,6 +105,9 @@ final class ZohoSyncCore {
      * Inicializar hooks de WordPress
      */
     private function init_hooks() {
+        // Autoloader
+        spl_autoload_register(array($this, 'autoload'));
+
         // Hook de activación
         register_activation_hook(__FILE__, array($this, 'activate'));
         
@@ -119,11 +122,6 @@ final class ZohoSyncCore {
         
         // Verificar dependencias
         add_action('admin_init', array($this, 'check_dependencies'));
-
-        // Inicializar componentes de admin
-        if (is_admin()) {
-            add_action('admin_menu', array($this, 'init_admin_components'));
-        }
     }
     
     /**
@@ -156,9 +154,6 @@ final class ZohoSyncCore {
      * Cargar dependencias del plugin
      */
     private function load_dependencies() {
-        // Autoloader simple para las clases del plugin
-        spl_autoload_register(array($this, 'autoload'));
-        
         // Cargar archivos principales
         require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-core.php';
         require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-auth-manager.php';
@@ -231,15 +226,11 @@ final class ZohoSyncCore {
         // Inicializar core principal
         $this->core = new Zoho_Sync_Core_Core();
         
-        // Los componentes de administración se inicializan en su propio hook
-    }
-
-    /**
-     * Inicializar componentes de administración
-     */
-    public function init_admin_components() {
-        new Zoho_Sync_Core_Admin_Pages();
-        new Zoho_Sync_Core_Admin_Notices();
+        // Inicializar páginas de administración si estamos en el admin
+        if (is_admin()) {
+            new Zoho_Sync_Core_Admin_Pages();
+            new Zoho_Sync_Core_Admin_Notices();
+        }
     }
     
     /**
