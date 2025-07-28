@@ -119,6 +119,11 @@ final class ZohoSyncCore {
         
         // Verificar dependencias
         add_action('admin_init', array($this, 'check_dependencies'));
+
+        // Inicializar componentes de admin
+        if (is_admin()) {
+            add_action('admin_menu', array($this, 'init_admin_components'));
+        }
     }
     
     /**
@@ -226,11 +231,15 @@ final class ZohoSyncCore {
         // Inicializar core principal
         $this->core = new Zoho_Sync_Core_Core();
         
-        // Inicializar páginas de administración si estamos en el admin
-        if (is_admin()) {
-            new Zoho_Sync_Core_Admin_Pages();
-            new Zoho_Sync_Core_Admin_Notices();
-        }
+        // Los componentes de administración se inicializan en su propio hook
+    }
+
+    /**
+     * Inicializar componentes de administración
+     */
+    public function init_admin_components() {
+        new Zoho_Sync_Core_Admin_Pages();
+        new Zoho_Sync_Core_Admin_Notices();
     }
     
     /**
