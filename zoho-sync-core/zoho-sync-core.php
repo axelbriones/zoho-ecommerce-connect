@@ -86,6 +86,16 @@ final class ZohoSyncCore {
         }
         wp_die();
     }
+
+    public function handle_zoho_auth_callback() {
+        if (isset($_GET['page']) && $_GET['page'] === 'zoho-sync-core' && isset($_GET['code'])) {
+            $code = sanitize_text_field($_GET['code']);
+            $auth_manager = new Zoho_Sync_Core_Auth_Manager();
+            $auth_manager->exchange_code_for_tokens($code, 'inventory', 'com', admin_url('admin.php?page=zoho-sync-core'));
+            wp_redirect(admin_url('admin.php?page=zoho-sync-core'));
+            exit;
+        }
+    }
 }
 
 function zoho_sync_core() {
