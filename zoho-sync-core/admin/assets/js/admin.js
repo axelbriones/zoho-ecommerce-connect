@@ -17,6 +17,9 @@
                 } else {
                     $status.text('Connection failed: ' + response.data.message);
                 }
+            }).fail(function(xhr, status, error) {
+                $status.text('An error occurred: ' + error);
+                console.error(xhr.responseText);
             });
         });
     });
