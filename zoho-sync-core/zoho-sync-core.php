@@ -250,9 +250,14 @@ final class ZohoSyncCore {
             wp_send_json_error(array('message' => 'Please fill in all fields.'));
         }
 
-        // Aquí iría la lógica para comprobar la conexión con Zoho
-        // Por ahora, simularemos una respuesta exitosa
-        wp_send_json_success();
+        $auth_manager = new Zoho_Sync_Core_Auth_Manager();
+        $result = $auth_manager->validate_credentials($client_id, $client_secret, $refresh_token);
+
+        if ($result['valid']) {
+            wp_send_json_success(array('message' => $result['message']));
+        } else {
+            wp_send_json_error(array('message' => $result['message']));
+        }
     }
 
     /**
