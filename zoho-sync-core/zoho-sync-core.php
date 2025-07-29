@@ -52,6 +52,7 @@ final class ZohoSyncCore {
 
     public function on_plugins_loaded() {
         if (is_admin()) {
+            require_once ZOHO_SYNC_CORE_ADMIN_DIR . 'class-admin-pages.php';
             new Zoho_Sync_Core_Admin_Pages();
             add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
             add_action('wp_ajax_zoho_sync_core_check_connection', array($this, 'check_connection_ajax'));
