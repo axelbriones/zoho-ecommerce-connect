@@ -120,6 +120,22 @@ final class ZohoSyncCore {
         
         // Verificar dependencias
         add_action('admin_init', array($this, 'check_dependencies'));
+
+        // Handle Zoho auth callback
+        add_action('admin_init', array($this, 'handle_zoho_auth_callback'));
+    }
+
+    /**
+     * Handle Zoho auth callback.
+     */
+    public function handle_zoho_auth_callback() {
+        if (isset($_GET['page']) && $_GET['page'] === 'zoho-sync-core' && isset($_GET['code'])) {
+            $code = sanitize_text_field($_GET['code']);
+            $auth_manager = new Zoho_Sync_Core_Auth_Manager();
+            $auth_manager->exchange_code_for_tokens($code, 'inventory', 'com', admin_url('admin.php?page=zoho-sync-core'));
+            wp_redirect(admin_url('admin.php?page=zoho-sync-core'));
+            exit;
+        }
     }
     
     /**
@@ -233,7 +249,26 @@ final class ZohoSyncCore {
             new Zoho_Sync_Core_Admin_Notices();
             add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
             add_action('wp_ajax_zoho_sync_core_check_connection', array($this, 'check_connection_ajax'));
+            add_action('wp_ajax_zoho_sync_core_generate_auth_url', array($this, 'generate_auth_url_ajax'));
         }
+    }
+
+    /**
+     * AJAX handler for generating the authorization URL.
+     */
+    public function generate_auth_url_ajax() {
+        check_ajax_referer('zoho_sync_core_generate_auth_url', 'nonce');
+
+        $auth_manager = new Zoho_Sync_Core_Auth_Manager();
+        $redirect_uri = admin_url('admin.php?page=zoho-sync-core');
+        $url = $auth_manager->get_authorization_url('inventory', 'com', $redirect_uri);
+
+        if ($url) {
+            wp_send_json_success(array('url' => $url));
+        } else {
+            wp_send_json_error(array('message' => 'Could not generate authorization URL.'));
+        }
+        wp_die();
     }
 
     /**
@@ -272,7 +307,8 @@ final class ZohoSyncCore {
         wp_enqueue_script('zoho-sync-core-admin', ZOHO_SYNC_CORE_ADMIN_URL . 'assets/js/admin.js', array('jquery'), ZOHO_SYNC_CORE_VERSION, true);
         wp_localize_script('zoho-sync-core-admin', 'zohoSyncCore', array(
             'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce'   => wp_create_nonce('zoho_sync_core_check_connection')
+            'check_connection_nonce'   => wp_create_nonce('zoho_sync_core_check_connection'),
+            'generate_auth_url_nonce' => wp_create_nonce('zoho_sync_core_generate_auth_url')
         ));
     }
     
