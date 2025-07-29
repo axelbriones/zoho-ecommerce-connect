@@ -43,6 +43,7 @@ final class ZohoSyncCore {
         require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-autoloader.php';
         $autoloader = new Zoho_Sync_Core_Autoloader();
         $autoloader->register();
+        require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-auth-manager.php';
     }
 
     private function init_hooks() {
