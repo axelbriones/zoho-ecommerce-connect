@@ -10,6 +10,7 @@
     <hr>
     <h2><?php _e('Authorization', 'zoho-sync-core'); ?></h2>
     <?php
+    require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-auth-manager.php';
     $options = get_option('zoho_sync_core_settings');
     $client_id = isset($options['zoho_client_id']) ? $options['zoho_client_id'] : '';
     $client_secret = isset($options['zoho_client_secret']) ? $options['zoho_client_secret'] : '';
