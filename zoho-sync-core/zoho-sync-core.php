@@ -259,6 +259,15 @@ final class ZohoSyncCore {
     public function generate_auth_url_ajax() {
         check_ajax_referer('zoho_sync_core_generate_auth_url', 'nonce');
 
+        $options = get_option('zoho_sync_core_settings');
+        $client_id = isset($options['zoho_client_id']) ? $options['zoho_client_id'] : '';
+        $client_secret = isset($options['zoho_client_secret']) ? $options['zoho_client_secret'] : '';
+
+        if (empty($client_id) || empty($client_secret)) {
+            wp_send_json_error(array('message' => 'Please save your Client ID and Client Secret first.'));
+            wp_die();
+        }
+
         $auth_manager = new Zoho_Sync_Core_Auth_Manager();
         $redirect_uri = admin_url('admin.php?page=zoho-sync-core');
         $url = $auth_manager->get_authorization_url('inventory', 'com', $redirect_uri);
