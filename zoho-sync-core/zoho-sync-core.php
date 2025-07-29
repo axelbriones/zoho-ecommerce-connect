@@ -249,35 +249,7 @@ final class ZohoSyncCore {
             new Zoho_Sync_Core_Admin_Notices();
             add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
             add_action('wp_ajax_zoho_sync_core_check_connection', array($this, 'check_connection_ajax'));
-            add_action('wp_ajax_zoho_sync_core_generate_auth_url', array($this, 'generate_auth_url_ajax'));
         }
-    }
-
-    /**
-     * AJAX handler for generating the authorization URL.
-     */
-    public function generate_auth_url_ajax() {
-        check_ajax_referer('zoho_sync_core_generate_auth_url', 'nonce');
-
-        $options = get_option('zoho_sync_core_settings');
-        $client_id = isset($options['zoho_client_id']) ? $options['zoho_client_id'] : '';
-        $client_secret = isset($options['zoho_client_secret']) ? $options['zoho_client_secret'] : '';
-
-        if (empty($client_id) || empty($client_secret)) {
-            wp_send_json_error(array('message' => 'Please save your Client ID and Client Secret first.'));
-            wp_die();
-        }
-
-        $auth_manager = new Zoho_Sync_Core_Auth_Manager();
-        $redirect_uri = admin_url('admin.php?page=zoho-sync-core');
-        $url = $auth_manager->get_authorization_url('inventory', 'com', $redirect_uri);
-
-        if ($url) {
-            wp_send_json_success(array('url' => $url));
-        } else {
-            wp_send_json_error(array('message' => 'Could not generate authorization URL.'));
-        }
-        wp_die();
     }
 
     /**
@@ -316,8 +288,7 @@ final class ZohoSyncCore {
         wp_enqueue_script('zoho-sync-core-admin', ZOHO_SYNC_CORE_ADMIN_URL . 'assets/js/admin.js', array('jquery'), ZOHO_SYNC_CORE_VERSION, true);
         wp_localize_script('zoho-sync-core-admin', 'zohoSyncCore', array(
             'ajax_url' => admin_url('admin-ajax.php'),
-            'check_connection_nonce'   => wp_create_nonce('zoho_sync_core_check_connection'),
-            'generate_auth_url_nonce' => wp_create_nonce('zoho_sync_core_generate_auth_url')
+            'check_connection_nonce'   => wp_create_nonce('zoho_sync_core_check_connection')
         ));
     }
     
