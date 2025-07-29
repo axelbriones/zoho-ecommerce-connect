@@ -573,7 +573,7 @@ class Zoho_Sync_Core_Auth_Manager {
      * @param string $region Región
      * @return array Resultado de validación
      */
-    public function validate_credentials($client_id, $client_secret, $region = 'com') {
+    public function validate_credentials($client_id, $client_secret, $refresh_token, $region = 'com') {
         $validation = array(
             'valid' => false,
             'message' => '',
@@ -590,17 +590,53 @@ class Zoho_Sync_Core_Auth_Manager {
             $validation['message'] = __('Client Secret es requerido', 'zoho-sync-core');
             return $validation;
         }
+
+        if (empty($refresh_token)) {
+            $validation['message'] = __('Refresh Token es requerido', 'zoho-sync-core');
+            return $validation;
+        }
         
         if (!isset($this->zoho_urls[$region])) {
             $validation['message'] = __('Región no válida', 'zoho-sync-core');
             return $validation;
         }
         
-        // Intentar hacer una request básica para validar credenciales
-        // (esto requeriría un endpoint específico de Zoho para validación)
+        $token_url = $this->zoho_urls[$region]['accounts'] . '/oauth/v2/token';
+
+        $params = array(
+            'grant_type' => 'refresh_token',
+            'client_id' => $client_id,
+            'client_secret' => $client_secret,
+            'refresh_token' => $refresh_token
+        );
+
+        $response = wp_remote_post($token_url, array(
+            'body' => $params,
+            'timeout' => 30,
+            'headers' => array(
+                'Content-Type' => 'application/x-www-form-urlencoded'
+            )
+        ));
+
+        if (is_wp_error($response)) {
+            $validation['message'] = $response->get_error_message();
+            return $validation;
+        }
+
+        $body = wp_remote_retrieve_body($response);
+        $data = json_decode($body, true);
+
+        if (isset($data['error'])) {
+            $validation['message'] = $data['error_description'] ?? $data['error'];
+            return $validation;
+        }
         
-        $validation['valid'] = true;
-        $validation['message'] = __('Credenciales válidas', 'zoho-sync-core');
+        if (isset($data['access_token'])) {
+            $validation['valid'] = true;
+            $validation['message'] = __('Conexión exitosa', 'zoho-sync-core');
+        } else {
+            $validation['message'] = __('Respuesta inesperada de Zoho', 'zoho-sync-core');
+        }
         
         return $validation;
     }
