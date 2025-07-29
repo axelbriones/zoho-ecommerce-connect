@@ -628,14 +628,17 @@ class Zoho_Sync_Core_Auth_Manager {
 
         if (isset($data['error'])) {
             $validation['message'] = $data['error_description'] ?? $data['error'];
+            ZohoSyncCore::log('error', 'Error de validación de credenciales de Zoho', $data);
             return $validation;
         }
         
         if (isset($data['access_token'])) {
             $validation['valid'] = true;
             $validation['message'] = __('Conexión exitosa', 'zoho-sync-core');
+            ZohoSyncCore::log('info', 'Validación de credenciales de Zoho exitosa', $data);
         } else {
             $validation['message'] = __('Respuesta inesperada de Zoho', 'zoho-sync-core');
+            ZohoSyncCore::log('error', 'Respuesta inesperada de Zoho durante la validación de credenciales', $data);
         }
         
         return $validation;
