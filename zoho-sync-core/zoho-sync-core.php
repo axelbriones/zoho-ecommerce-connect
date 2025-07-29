@@ -230,7 +230,43 @@ final class ZohoSyncCore {
         if (is_admin()) {
             new Zoho_Sync_Core_Admin_Pages();
             new Zoho_Sync_Core_Admin_Notices();
+            add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
+            add_action('wp_ajax_zoho_sync_core_check_connection', array($this, 'check_connection_ajax'));
         }
+    }
+
+    /**
+     * AJAX handler for checking the connection.
+     */
+    public function check_connection_ajax() {
+        check_ajax_referer('zoho_sync_core_check_connection', 'nonce');
+
+        $options = get_option('zoho_sync_core_settings');
+        $client_id = isset($options['zoho_client_id']) ? $options['zoho_client_id'] : '';
+        $client_secret = isset($options['zoho_client_secret']) ? $options['zoho_client_secret'] : '';
+        $refresh_token = isset($options['zoho_refresh_token']) ? $options['zoho_refresh_token'] : '';
+
+        if (empty($client_id) || empty($client_secret) || empty($refresh_token)) {
+            wp_send_json_error(array('message' => 'Please fill in all fields.'));
+        }
+
+        // Aquí iría la lógica para comprobar la conexión con Zoho
+        // Por ahora, simularemos una respuesta exitosa
+        wp_send_json_success();
+    }
+
+    /**
+     * Enqueue admin scripts and styles.
+     */
+    public function enqueue_admin_scripts($hook) {
+        if ('toplevel_page_zoho-sync-core' !== $hook) {
+            return;
+        }
+        wp_enqueue_script('zoho-sync-core-admin', ZOHO_SYNC_CORE_ADMIN_URL . 'assets/js/admin.js', array('jquery'), ZOHO_SYNC_CORE_VERSION, true);
+        wp_localize_script('zoho-sync-core-admin', 'zohoSyncCore', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'nonce'   => wp_create_nonce('zoho_sync_core_check_connection')
+        ));
     }
     
     /**
