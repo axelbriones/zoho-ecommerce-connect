@@ -4,6 +4,13 @@ class Zoho_Sync_Core_Database_Manager {
 
     public static function create_tables() {
         global $wpdb;
+
+        // Add a version check to prevent this from running on every activation
+        $installed_ver = get_option("zoho_sync_core_db_version");
+        if ($installed_ver == ZOHO_SYNC_CORE_DB_VERSION) {
+            return;
+        }
+
         $charset_collate = $wpdb->get_charset_collate();
 
         $tables = array(
@@ -71,5 +78,7 @@ class Zoho_Sync_Core_Database_Manager {
         foreach ($tables as $table) {
             dbDelta($table);
         }
+
+        update_option("zoho_sync_core_db_version", ZOHO_SYNC_CORE_DB_VERSION);
     }
 }
