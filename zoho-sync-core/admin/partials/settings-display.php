@@ -28,4 +28,8 @@
         <?php
     }
     ?>
+    <hr>
+    <h2><?php _e('Connection Test', 'zoho-sync-core'); ?></h2>
+    <button type="button" id="zoho-check-connection" class="button button-secondary"><?php _e('Check Connection', 'zoho-sync-core'); ?></button>
+    <span id="zoho-connection-status"></span>
 </div>

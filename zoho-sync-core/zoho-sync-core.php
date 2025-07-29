@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Zoho Sync Core
  * Description: Core plugin for Zoho synchronization.
- * Version: 2.0.0
+ * Version: 3.0.0
  * Author: Jules
  * Text Domain: zoho-sync-core
  * Domain Path: /languages
@@ -11,14 +11,6 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-
-define('ZOHO_SYNC_CORE_VERSION', '2.0.0');
-define('ZOHO_SYNC_CORE_PLUGIN_FILE', __FILE__);
-define('ZOHO_SYNC_CORE_PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('ZOHO_SYNC_CORE_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('ZOHO_SYNC_CORE_INCLUDES_DIR', ZOHO_SYNC_CORE_PLUGIN_DIR . 'includes/');
-define('ZOHO_SYNC_CORE_ADMIN_DIR', ZOHO_SYNC_CORE_PLUGIN_DIR . 'admin/');
-define('ZOHO_SYNC_CORE_ADMIN_URL', ZOHO_SYNC_CORE_PLUGIN_URL . 'admin/');
 
 final class ZohoSyncCore {
 
@@ -38,12 +30,13 @@ final class ZohoSyncCore {
     }
 
     private function define_constants() {
-        // Database constants
-        define('ZOHO_SYNC_CORE_DB_VERSION', '1.0');
-        define('ZOHO_SYNC_CORE_SETTINGS_TABLE', 'zoho_sync_settings');
-        define('ZOHO_SYNC_CORE_LOGS_TABLE', 'zoho_sync_logs');
-        define('ZOHO_SYNC_CORE_TOKENS_TABLE', 'zoho_sync_tokens');
-        define('ZOHO_SYNC_CORE_MODULES_TABLE', 'zoho_sync_modules');
+        define('ZOHO_SYNC_CORE_VERSION', '3.0.0');
+        define('ZOHO_SYNC_CORE_PLUGIN_FILE', __FILE__);
+        define('ZOHO_SYNC_CORE_PLUGIN_DIR', plugin_dir_path(__FILE__));
+        define('ZOHO_SYNC_CORE_PLUGIN_URL', plugin_dir_url(__FILE__));
+        define('ZOHO_SYNC_CORE_INCLUDES_DIR', ZOHO_SYNC_CORE_PLUGIN_DIR . 'includes/');
+        define('ZOHO_SYNC_CORE_ADMIN_DIR', ZOHO_SYNC_CORE_PLUGIN_DIR . 'admin/');
+        define('ZOHO_SYNC_CORE_ADMIN_URL', ZOHO_SYNC_CORE_PLUGIN_URL . 'admin/');
     }
 
     private function includes() {
@@ -62,6 +55,7 @@ final class ZohoSyncCore {
             new Zoho_Sync_Core_Admin_Pages();
             add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
             add_action('wp_ajax_zoho_sync_core_check_connection', array($this, 'check_connection_ajax'));
+            $this->handle_zoho_auth_callback();
         }
     }
 
