@@ -259,6 +259,7 @@ final class ZohoSyncCore {
         } else {
             wp_send_json_error(array('message' => $result['message']));
         }
+        wp_die();
     }
 
     /**
