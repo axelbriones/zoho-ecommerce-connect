@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Zoho Sync Core
  * Description: Core plugin for Zoho synchronization.
- * Version: 4.0.0
+ * Version: 5.0.0
  * Author: Jules
  * Text Domain: zoho-sync-core
  * Domain Path: /languages
@@ -30,7 +30,7 @@ final class ZohoSyncCore {
     }
 
     private function define_constants() {
-        define('ZOHO_SYNC_CORE_VERSION', '4.0.0');
+        define('ZOHO_SYNC_CORE_VERSION', '5.0.0');
         define('ZOHO_SYNC_CORE_PLUGIN_FILE', __FILE__);
         define('ZOHO_SYNC_CORE_PLUGIN_DIR', plugin_dir_path(__FILE__));
         define('ZOHO_SYNC_CORE_PLUGIN_URL', plugin_dir_url(__FILE__));

@@ -17,17 +17,16 @@ class Zoho_Sync_Core_Autoloader {
             strtolower($class_name)
         );
 
-        $directories = array(
-            ZOHO_SYNC_CORE_INCLUDES_DIR,
-            ZOHO_SYNC_CORE_ADMIN_DIR
-        );
+        $file = ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-' . $file_path . '.php';
+        if (file_exists($file)) {
+            require_once $file;
+            return;
+        }
 
-        foreach ($directories as $directory) {
-            $file = $directory . 'class-' . $file_path . '.php';
-            if (file_exists($file)) {
-                require_once $file;
-                return;
-            }
+        $file = ZOHO_SYNC_CORE_ADMIN_DIR . 'class-' . $file_path . '.php';
+        if (file_exists($file)) {
+            require_once $file;
+            return;
         }
     }
 }

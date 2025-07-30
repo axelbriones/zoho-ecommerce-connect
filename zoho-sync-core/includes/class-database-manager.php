@@ -7,7 +7,7 @@ class Zoho_Sync_Core_Database_Manager {
 
         // Add a version check to prevent this from running on every activation
         $installed_ver = get_option("zoho_sync_core_db_version");
-        if ($installed_ver == ZOHO_SYNC_CORE_DB_VERSION) {
+        if ($installed_ver == '1.0') {
             return;
         }
 
@@ -79,6 +79,6 @@ class Zoho_Sync_Core_Database_Manager {
             dbDelta($table);
         }
 
-        update_option("zoho_sync_core_db_version", ZOHO_SYNC_CORE_DB_VERSION);
+        update_option("zoho_sync_core_db_version", '1.0');
     }
 }
