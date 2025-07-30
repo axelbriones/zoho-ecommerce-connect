@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Zoho Sync Core
  * Description: Core plugin for Zoho synchronization.
- * Version: 5.0.0
+ * Version: 6.0.0
  * Author: Jules
  * Text Domain: zoho-sync-core
  * Domain Path: /languages
@@ -30,7 +30,7 @@ final class ZohoSyncCore {
     }
 
     private function define_constants() {
-        define('ZOHO_SYNC_CORE_VERSION', '5.0.0');
+        define('ZOHO_SYNC_CORE_VERSION', '6.0.0');
         define('ZOHO_SYNC_CORE_PLUGIN_FILE', __FILE__);
         define('ZOHO_SYNC_CORE_PLUGIN_DIR', plugin_dir_path(__FILE__));
         define('ZOHO_SYNC_CORE_PLUGIN_URL', plugin_dir_url(__FILE__));
@@ -40,9 +40,9 @@ final class ZohoSyncCore {
     }
 
     private function includes() {
-        require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-autoloader.php';
-        $autoloader = new Zoho_Sync_Core_Autoloader();
-        $autoloader->register();
+        require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-database-manager.php';
+        require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-auth-manager.php';
+        require_once ZOHO_SYNC_CORE_ADMIN_DIR . 'class-admin-pages.php';
     }
 
     private function init_hooks() {
