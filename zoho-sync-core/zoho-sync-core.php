@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Zoho Sync Core
  * Description: Core plugin for Zoho synchronization.
- * Version: 3.0.0
+ * Version: 4.0.0
  * Author: Jules
  * Text Domain: zoho-sync-core
  * Domain Path: /languages
@@ -30,7 +30,7 @@ final class ZohoSyncCore {
     }
 
     private function define_constants() {
-        define('ZOHO_SYNC_CORE_VERSION', '3.0.0');
+        define('ZOHO_SYNC_CORE_VERSION', '4.0.0');
         define('ZOHO_SYNC_CORE_PLUGIN_FILE', __FILE__);
         define('ZOHO_SYNC_CORE_PLUGIN_DIR', plugin_dir_path(__FILE__));
         define('ZOHO_SYNC_CORE_PLUGIN_URL', plugin_dir_url(__FILE__));
@@ -43,7 +43,6 @@ final class ZohoSyncCore {
         require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-autoloader.php';
         $autoloader = new Zoho_Sync_Core_Autoloader();
         $autoloader->register();
-        require_once ZOHO_SYNC_CORE_INCLUDES_DIR . 'class-auth-manager.php';
     }
 
     private function init_hooks() {
@@ -53,11 +52,20 @@ final class ZohoSyncCore {
 
     public function on_plugins_loaded() {
         if (is_admin()) {
-            require_once ZOHO_SYNC_CORE_ADMIN_DIR . 'class-admin-pages.php';
             new Zoho_Sync_Core_Admin_Pages();
+            add_action('admin_init', array($this, 'handle_zoho_auth_callback'));
             add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
             add_action('wp_ajax_zoho_sync_core_check_connection', array($this, 'check_connection_ajax'));
-            $this->handle_zoho_auth_callback();
+        }
+    }
+
+    public function handle_zoho_auth_callback() {
+        if (isset($_GET['page']) && $_GET['page'] === 'zoho-sync-core' && isset($_GET['code'])) {
+            $code = sanitize_text_field($_GET['code']);
+            $auth_manager = new Zoho_Sync_Core_Auth_Manager();
+            $auth_manager->exchange_code_for_tokens($code, 'inventory', 'com', admin_url('admin.php?page=zoho-sync-core'));
+            wp_redirect(admin_url('admin.php?page=zoho-sync-core'));
+            exit;
         }
     }
 
@@ -86,16 +94,6 @@ final class ZohoSyncCore {
             wp_send_json_error($result);
         }
         wp_die();
-    }
-
-    public function handle_zoho_auth_callback() {
-        if (isset($_GET['page']) && $_GET['page'] === 'zoho-sync-core' && isset($_GET['code'])) {
-            $code = sanitize_text_field($_GET['code']);
-            $auth_manager = new Zoho_Sync_Core_Auth_Manager();
-            $auth_manager->exchange_code_for_tokens($code, 'inventory', 'com', admin_url('admin.php?page=zoho-sync-core'));
-            wp_redirect(admin_url('admin.php?page=zoho-sync-core'));
-            exit;
-        }
     }
 }
 
