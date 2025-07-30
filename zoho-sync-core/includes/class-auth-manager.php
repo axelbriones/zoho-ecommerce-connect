@@ -1,4 +1,15 @@
 <?php
+/**
+ * Auth Manager Class
+ * 
+ * @package ZohoSyncCore
+ * @subpackage Auth
+ */
+
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit('Direct access denied.');
+}
 
 class Zoho_Sync_Core_Auth_Manager {
 
@@ -112,5 +123,48 @@ class Zoho_Sync_Core_Auth_Manager {
             return array('valid' => true, 'message' => __('Connection successful', 'zoho-sync-core'));
         }
         return array('valid' => false, 'message' => __('Unexpected response from Zoho', 'zoho-sync-core'));
+    }
+
+    /**
+     * Get available regions
+     * 
+     * @return array Available regions
+     */
+    public function get_available_regions() {
+        return array(
+            'com' => __('Estados Unidos (.com)', 'zoho-sync-core'),
+            'eu' => __('Europa (.eu)', 'zoho-sync-core'),
+            'in' => __('India (.in)', 'zoho-sync-core'),
+            'com.au' => __('Australia (.com.au)', 'zoho-sync-core'),
+            'jp' => __('Japón (.jp)', 'zoho-sync-core')
+        );
+    }
+
+    /**
+     * Get authentication status
+     * 
+     * @return array Authentication status
+     */
+    public function get_auth_status() {
+        $settings = get_option('zoho_sync_core_settings', array());
+        $client_id = isset($settings['zoho_client_id']) ? $settings['zoho_client_id'] : '';
+        $client_secret = isset($settings['zoho_client_secret']) ? $settings['zoho_client_secret'] : '';
+        $refresh_token = isset($settings['zoho_refresh_token']) ? $settings['zoho_refresh_token'] : '';
+        
+        $tokens_available = !empty($client_id) && !empty($client_secret) && !empty($refresh_token);
+        $token_valid = false;
+        
+        if ($tokens_available) {
+            $validation = $this->validate_credentials($client_id, $client_secret, $refresh_token);
+            $token_valid = $validation['valid'];
+        }
+        
+        return array(
+            'tokens_available' => $tokens_available,
+            'token_valid' => $token_valid,
+            'client_id_set' => !empty($client_id),
+            'client_secret_set' => !empty($client_secret),
+            'refresh_token_set' => !empty($refresh_token)
+        );
     }
 }

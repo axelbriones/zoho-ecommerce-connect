@@ -1,4 +1,15 @@
 <?php
+/**
+ * Database Manager Class
+ * 
+ * @package ZohoSyncCore
+ * @subpackage Database
+ */
+
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit('Direct access denied.');
+}
 
 class Zoho_Sync_Core_Database_Manager {
 
