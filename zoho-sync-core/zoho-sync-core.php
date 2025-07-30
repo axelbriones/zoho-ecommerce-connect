@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Zoho Sync Core
  * Description: Core plugin for Zoho synchronization.
- * Version: 6.0.0
+ * Version: 7.0.0
  * Author: Jules
  * Text Domain: zoho-sync-core
  * Domain Path: /languages
@@ -30,7 +30,7 @@ final class ZohoSyncCore {
     }
 
     private function define_constants() {
-        define('ZOHO_SYNC_CORE_VERSION', '6.0.0');
+        define('ZOHO_SYNC_CORE_VERSION', '7.0.0');
         define('ZOHO_SYNC_CORE_PLUGIN_FILE', __FILE__);
         define('ZOHO_SYNC_CORE_PLUGIN_DIR', plugin_dir_path(__FILE__));
         define('ZOHO_SYNC_CORE_PLUGIN_URL', plugin_dir_url(__FILE__));
@@ -48,14 +48,14 @@ final class ZohoSyncCore {
     private function init_hooks() {
         register_activation_hook(ZOHO_SYNC_CORE_PLUGIN_FILE, array('Zoho_Sync_Core_Database_Manager', 'create_tables'));
         add_action('plugins_loaded', array($this, 'on_plugins_loaded'));
+        add_action('admin_init', array($this, 'handle_zoho_auth_callback'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
+        add_action('wp_ajax_zoho_sync_core_check_connection', array($this, 'check_connection_ajax'));
     }
 
     public function on_plugins_loaded() {
         if (is_admin()) {
             new Zoho_Sync_Core_Admin_Pages();
-            add_action('admin_init', array($this, 'handle_zoho_auth_callback'));
-            add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
-            add_action('wp_ajax_zoho_sync_core_check_connection', array($this, 'check_connection_ajax'));
         }
     }
 
